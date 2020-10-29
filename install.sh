@@ -41,6 +41,9 @@ popd
 # install q100
 echo "installing q100..."
 git clone https://github.com/SimpleChisel/q100.git q100
+pushd q100
+mkdir output_files
+popd
 status=$?
 [ ${status} -eq 0 ] && echo "q100 installation is successful" || echo "q100 installation is failed!"
 

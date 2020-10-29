@@ -64,6 +64,9 @@ sbt publishLocal
 Q100 includes the components and scripts we will use in the hackathon.
 ```
 git clone https://github.com/SimpleChisel/q100.git q100
+pushd q100
+mkdir output_files
+popd
 ```
 
 ### [Yosys (Optional)](https://github.com/YosysHQ/yosys):
@@ -116,7 +119,21 @@ Cog is a python-based template generator. Again, you don't need to learn how to 
 pip3 install cogapp
 ```
 ## Check-up
+To check whether if you already have everything setup, go into the q100 directory by
+```
+cd q100
+```
+then, see if you can run verilator by
+```
+make run-verilator
+```
+If it is executed nicely and there are output files under `output_files/`, you are good to go.
 
+(Optional) If you have installed yosys, you can try out yosys by
+```
+make synth
+```
+If you see a output file `stats.txt` and the content inside make sense, it means yosys is working well for you.
 ## Update
 To improve the overall experience, we are still working around the clock to debug SimpleChisel and Q100 component library.
 It's safer to do it once before the real hackathon starts.
