@@ -6,7 +6,7 @@ Here are all the software and packages needed for the hackathon challenge. I tri
 - [Prerequisites](#prerequisites)
 - [One-Click Installation](#one-click-installation)
 - [Install One-by-one](#install-one-by-one)
-	- [Java & Sbt](#java\ &\ sbt)
+	- [Java and Sbt](#java-and-sbt)
 	- [SimpleChisel](#simplechisel)
 	- [Q100 Component Library](#q100)
 	- [Yosys (Optional)](#yosys\ (optional))
@@ -37,7 +37,7 @@ sudo ./install.sh
 
 ## Install One-by-one
 
-### [Java & Sbt]():
+### [Java and Sbt]():
 The default Java and Sbt should work. Since we have specified the Sbt version to use in our project `build.st`, you don't need to worry about the sbt script version. 
 To get Java and Sbt:
 ```
