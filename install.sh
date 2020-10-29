@@ -1,5 +1,17 @@
 #!/bin/bash
 
+echo "install prerequisites..."
+sudo apt-get install perl python3
+sudo apt-get install git make autoconf g++ flex bison
+os_version = $(lsb_release -si)
+if [$os_version == "Ubuntu"] then
+  echo "Tring to install ubuntu prerequisites"
+	sudo apt-get install libfl2 libfl-dev zlibc zlib1g zlib1g-dev  # Ubuntu only (ignore if gives error)
+else
+	echo "Tring to install non-ubuntu prerequisites"
+	sudo apt-get install libgz  # Non-Ubuntu (ignore if gives error)
+fi
+
 # For Java
 echo "installing java..."
 sudo apt install default-jdk
@@ -17,20 +29,24 @@ status = $?
 popd
 [ $status -eq 0 ] && echo "sbt installation is successful" || echo "sbt installation is failed!"
 
+# install simplechisel
+echo "installing simplechisel..."
+git clone https://github.com/SimpleChisel/simple-chisel.git simple-chisel
+cd simple-chisel
+git checkout simple-chisel-release
+sbt publishLocal
+status = $?
+[ $status -eq 0 ] && echo "simplechisel installation is successful" || echo "simplechisel installation is failed!"
+
+# install q100
+echo "installing q100..."
+git clone https://github.com/SimpleChisel/q100.git q100
+status = $?
+[ $status -eq 0 ] && echo "q100 installation is successful" || echo "q100 installation is failed!"
+
 # install yosys
 echo "installing yosys..."
-sudo apt-get install build-essential clang bison flex \
-	libreadline-dev gawk tcl-dev libffi-dev git \
-	graphviz xdot pkg-config python3 libboost-system-dev \
-	libboost-python-dev libboost-filesystem-dev zlib1g-dev
-
-git clone https://github.com/YosysHQ/yosys yosys
-cd yosys
-git checkout 623526d17d36fe85ac1b34ddd1026be34c826b9e
-make config-clang
-make
-echo "PATH=\"$(pwd)/:\$PATH\"" >> ~/.profile
-source ~/.profile
+sudo apt-get install yosys
 status = $?
 [ $status -eq 0 ] && echo "Yosys installation is successful" || echo "Yosys installation is failed!"
 

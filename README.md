@@ -52,14 +52,19 @@ sudo apt-get install sbt
 ```
 
 ### [SimpleChisel](https://github.com/SimpleChisel/simple-chisel):
+SimpleChisel is the compiler we will use. We will publish this package to your local environment. 
 ```
-git clone https://github.com/SimpleChisel/simple-chisel.git
+git clone https://github.com/SimpleChisel/simple-chisel.git simple-chisel
 cd simple-chisel
 git checkout simple-chisel-release
 sbt publishLocal
 ```
 
-### [Q100 Component Library]():
+### [Q100 Component Library](https://github.com/SimpleChisel/q100.git):
+Q100 includes the components and scripts we will use in the hackathon.
+```
+git clone https://github.com/SimpleChisel/q100.git q100
+```
 
 ### [Yosys (Optional)](https://github.com/YosysHQ/yosys):
 This is optional. If you have access to your own synthesis tool, you can ignore this. We will use Yosys to evaluate the design. You don't necessarily need to learn how to use Yosys. We will have script for you.
@@ -114,3 +119,23 @@ pip3 install cogapp
 
 ## Update
 To improve the overall experience, we are still working around the clock to debug SimpleChisel and Q100 component library.
+It's safer to do it once before the real hackathon starts.
+Through script:
+```
+chmod +x update.sh
+./update.sh
+```
+
+Or do it manually:
+```
+# Update SimpleChisel
+cd simple-chisel
+git checkout simple-chisel-release
+git pull origin simple-chisel-release
+sbt publishLocal
+
+# Update Q100
+cd q100
+git checkout master
+git pull origin master
+```
