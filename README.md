@@ -5,6 +5,7 @@ Here are all the software and packages needed for the hackathon challenge. I tri
 ## Menu
 - [Prerequisites](#prerequisites)
 - [One-Click Installation](#one-click-installation)
+- [Dockerfile](#dockerfile)
 - [Install One-by-one](#install-one-by-one)
 	- [Java and Sbt](#java-and-sbt)
 	- [SimpleChisel](#simplechisel)
@@ -34,6 +35,9 @@ cd ada-hackathon
 chmod +x install.sh
 sudo ./install.sh
 ```
+
+## Dockerfile
+There is a dockerfile you can use to config your docker. Shout-out to Carol Hsu from Georgia Tech to contribute this docker config file!
 
 ## Install One-by-one
 
